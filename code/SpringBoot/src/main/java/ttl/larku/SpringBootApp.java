@@ -8,10 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.availability.AvailabilityChangeEvent;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.event.SpringApplicationEvent;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -31,7 +28,7 @@ import java.util.Set;
 @SpringBootApplication
 public class SpringBootApp {
     public static void defaultmain(String[] args) {
-        SpringApplication.run(SpringBootApp.class, args);
+        ApplicationContext context = SpringApplication.run(SpringBootApp.class, args);
 
     }
 
