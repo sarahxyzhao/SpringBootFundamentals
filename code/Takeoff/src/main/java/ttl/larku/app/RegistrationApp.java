@@ -11,23 +11,25 @@ public class RegistrationApp {
 
     int value;
 
+    private StudentService ss = new StudentService();
+
     public static void main(String[] args) {
+        RegistrationApp ra = new RegistrationApp();
         //primeAndPrintBoth();
-        postRequestToAddAStudent();
-        getRequestForAllStudents();
+        ra.postRequestToAddAStudent();
+        ra.getRequestForAllStudents();
     }
 
 
-    public static void postRequestToAddAStudent() {
-        StudentService ss = new StudentService();
+    public void postRequestToAddAStudent() {
         ss.createStudent("New One", "282 484 9944", Student.Status.FULL_TIME);
 
         List<Student> students = ss.getAllStudents();
+        System.out.println("Students:");
         students.forEach(System.out::println);
     }
 
-    public static void getRequestForAllStudents() {
-        StudentService ss = new StudentService();
+    public void getRequestForAllStudents() {
         List<Student> students = ss.getAllStudents();
         System.out.println("All Students: " + students.size());
         students.forEach(System.out::println);
