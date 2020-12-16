@@ -33,11 +33,11 @@ public class RegistrationService {
     }
 
 
-//    @PostConstruct
-//    public void init() {
-//        Student s = studentService.getStudent(10);
-//
-//    }
+    @PostConstruct
+    public void init() {
+        Student s = studentService.getStudent(10);
+
+    }
 
 
     public ScheduledClass addNewClassToSchedule(String courseCode, String startDate, String endDate) {
