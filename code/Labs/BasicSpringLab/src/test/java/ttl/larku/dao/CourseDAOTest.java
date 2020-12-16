@@ -3,6 +3,7 @@ package ttl.larku.dao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
@@ -11,6 +12,8 @@ import ttl.larku.domain.Course;
 import ttl.larku.domain.ScheduledClass;
 import ttl.larku.domain.Student;
 import ttl.larku.jconfig.LarkUConfig;
+
+import javax.annotation.Resource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -44,6 +47,8 @@ public class CourseDAOTest {
     //TODO - Dependency Injection Using Annotations.
     //Here you will need to supply the name for the Dependency
     //you need to inject
+//    @Autowired
+    @Resource(name = "courseDAO")
     private BaseDAO<Course> dao;
 
     @BeforeEach

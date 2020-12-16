@@ -1,5 +1,6 @@
 package ttl.larku.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ttl.larku.dao.BaseDAO;
 import ttl.larku.domain.Course;
 
@@ -8,6 +9,7 @@ import java.util.List;
 public class CourseService {
 
     //TODO - Dependency Injection needed here.
+//    @Autowired
     private BaseDAO<Course> courseDAO;
 
     public Course createCourse(String code, String title) {
