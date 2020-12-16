@@ -5,8 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import ttl.larku.LarkUConfig;
+import ttl.larku.LarkUTestDataConfig;
+import ttl.larku.dao.inmemory.InMemoryCourseDAO;
+import ttl.larku.domain.ConnectionServiceProperties;
 import ttl.larku.domain.Course;
 import ttl.larku.service.CourseService;
+import ttl.larku.service.StudentService;
+import ttl.larku.service.props.ConnectionService;
 
 import java.util.List;
 
@@ -15,8 +21,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+
 //@SpringBootTest(classes = {LarkUConfig.class, LarkUTestDataConfig.class, StudentService.class, ConnectionService.class, ConnectionServiceProperties.class})
+
 @SpringBootTest(classes = MyTestConfig.class)
+//@SpringBootTest(classes = {CourseService.class, InMemoryCourseDAO.class})
 public class CourseServiceTest {
 
     @Autowired

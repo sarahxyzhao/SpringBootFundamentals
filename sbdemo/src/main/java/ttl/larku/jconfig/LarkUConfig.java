@@ -21,10 +21,13 @@ public class LarkUConfig {
     @Autowired
     private Environment env;
 
+    LarkUTestDataConfig testData = new LarkUTestDataConfig();
+
     @Bean
     @Profile("development")
     public BaseDAO<Student> studentDAO() {
-        return inMemoryStudentDAO();
+//        return inMemoryStudentDAO();
+        return testData.studentDAOWithInitData();
     }
 
     @Bean(name = "studentDAO")
@@ -44,7 +47,8 @@ public class LarkUConfig {
     @Bean
     @Profile("development")
     public BaseDAO<Course> courseDAO() {
-        return inMemoryCourseDAO();
+        //return inMemoryCourseDAO();
+        return testData.courseDAOWithInitData();
     }
 
     @Bean(name = "courseDAO")

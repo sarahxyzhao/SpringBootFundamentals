@@ -42,7 +42,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * for the test.  This will still pull in some other beans.
  * About 10 beans at this writing.
  **********/
-@SpringBootTest(classes = {LarkUConfig.class, LarkUTestDataConfig.class, StudentService.class, ConnectionService.class, ConnectionServiceProperties.class})
+
+@SpringBootTest(classes = MyTestConfig.class)
+//@SpringBootTest(classes = {LarkUConfig.class, LarkUTestDataConfig.class, StudentService.class, ConnectionService.class, ConnectionServiceProperties.class})
+
 //@SpringBootTest(classes = {StudentService.class, InMemoryStudentDAO.class, ClassThatWeDontOwn.class})
 //@EnabledIf(expression = "#{environment.acceptsProfiles('development')}", loadContext = true)
 //@EnabledIf(expression = "#{'${spring.profiles.active}' == 'bory'}", loadContext = true)

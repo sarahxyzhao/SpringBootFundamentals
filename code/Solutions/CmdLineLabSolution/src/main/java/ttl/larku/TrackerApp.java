@@ -32,7 +32,7 @@ public class TrackerApp {
     }
 }
 
-@Component
+//@Component
 class AppRunner implements CommandLineRunner
 {
     private final TrackService trackService;

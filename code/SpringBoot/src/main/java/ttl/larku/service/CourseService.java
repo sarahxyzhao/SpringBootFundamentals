@@ -7,11 +7,16 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import ttl.larku.dao.BaseDAO;
+import ttl.larku.dao.inmemory.InMemoryCourseDAO;
 import ttl.larku.domain.Course;
 
 public class CourseService {
 
     private BaseDAO<Course> courseDAO;
+
+    public CourseService(BaseDAO<Course> dao) {
+        this.courseDAO = dao;
+    }
 
     public Course createCourse(String code, String title) {
         Course course = new Course(code, title);

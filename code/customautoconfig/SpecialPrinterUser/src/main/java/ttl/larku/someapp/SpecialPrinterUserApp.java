@@ -17,21 +17,31 @@ public class SpecialPrinterUserApp {
         SpringApplication.run(SpecialPrinterUserApp.class, args);
     }
 
+//    @Bean
+//    public SpecialPrinter specialPrinter() {
+//        SpecialPrinter sp = new SpecialPrinter();
+//        sp.setPrefix("{");
+//        sp.setSuffix("}");
+//        return sp;
+//    }
+}
+
+@Configuration
+class OtherConfig
+{
     @Bean
     public SpecialPrinter specialPrinter() {
         SpecialPrinter sp = new SpecialPrinter();
-        sp.setPrefix("{");
-        sp.setSuffix("}");
+        sp.setPrefix("<");
+        sp.setSuffix(">");
         return sp;
     }
+
 }
 
 @Component
 class MyRunner implements CommandLineRunner
 {
-
-    @Autowired
-    private ApplicationContext context;
 
     @Autowired
     private SpecialPrinter specialPrinter;

@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import ttl.larku.TrackerConfig;
 import ttl.larku.dao.inmemory.InMemoryTrackDAO;
 import ttl.larku.domain.Track;
 
@@ -13,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-@ExtendWith(SpringExtension.class)
 //Different ways of creating the Context.  From Most Expensive to
 // Not So Expensive.
 /**********************
@@ -26,21 +27,29 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  //This next approach will just create the beans in the given
  //configuration classes. //About 13 beans at this writing
  ***********************/
-//@SpringBootTest(classes = {TrackerConfig.class})
+@SpringBootTest(classes = {TrackerConfig.class})
 
 /*****************************
  * Finally, we can simply pull in the exact classes we need
  * for the test.  This will still pull in some other beans.
  * About 10 beans at this writing.
  **********/
-@SpringBootTest(classes = {TrackService.class, InMemoryTrackDAO.class})
+//@SpringBootTest (classes = {TrackService.class, InMemoryTrackDAO.class})
 public class TrackServiceTest {
 
     @Autowired
     private TrackService trackService;
 
+    @Autowired
+    private ApplicationContext context;
+
     @BeforeEach
     public void setup() {
+        for(String name : context.getBeanDefinitionNames()) {
+            System.out.println(name);
+        }
+        System.out.println(context.getBeanDefinitionCount() + " beans");
+
         trackService.clear();
     }
 

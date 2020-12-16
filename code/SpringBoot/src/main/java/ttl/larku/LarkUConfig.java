@@ -76,8 +76,8 @@ public class LarkUConfig {
 
     @Bean
     public CourseService courseService() {
-        CourseService cc = new CourseService();
-        cc.setCourseDAO(courseDAO());
+        CourseService cc = new CourseService(courseDAO());
+//        cc.setCourseDAO(courseDAO());
 
         return cc;
     }
